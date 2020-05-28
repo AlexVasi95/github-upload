@@ -1,0 +1,23 @@
+pipeline {
+    agent any
+    parameters {
+        string(name: 'Param_from_script', defaultValue: 'Hello', description: 'Lol, description')
+    }
+    stages {
+        stage("Hello") {
+            steps {
+                echo "${params.Param_from_script} World"
+            }
+        }
+        stage("Multiple steps") {
+            steps {
+                bat 'echo "Print whatever."'
+            }
+        }
+        stage("Goodbye") {
+            steps {
+                echo 'Goodbye World'
+            }
+        }
+    }
+}
