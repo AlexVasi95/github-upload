@@ -1,12 +1,12 @@
 pipeline {
     agent any
     parameters {
-        string(name: 'Param_from_script', defaultValue: 'Hello', description: 'Lol, description')
+        string(name: 'Param_from_script', defaultValue: 'World', description: 'Lol, description')
     }
     stages {
         stage("Hello") {
             steps {
-                echo "${params.Param_from_script} World"
+                echo "Hello ${params.Param_from_script}."
             }
         }
         stage("Multiple steps") {
@@ -16,7 +16,7 @@ pipeline {
         }
         stage("Goodbye") {
             steps {
-                echo 'Goodbye World'
+                echo "Goodbye ${params.Param_from_script}!"
             }
         }
     }
